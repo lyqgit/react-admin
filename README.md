@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -70,4 +70,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 =======
 # react-admin
 react管理后台
->>>>>>> ca83c2a5f1396c26a37d0e07ec4704694c7eccc3
