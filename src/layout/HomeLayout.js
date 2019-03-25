@@ -1,9 +1,10 @@
 import React,{ Component } from 'react'
-import { Route, Link } from "react-router-dom";
-import { Layout,Button,Icon } from 'antd'
+import { Route } from "react-router-dom";
+import { Layout } from 'antd'
 import SideMenu from '@/components/SideMenu'
 import Index from '@/components/Index'
 import FooterContainer from '@/components/Footer'
+import HeaderContainer from '@/components/Header'
 import lazyComponent from '@/utils/lazyComponent'
 import styles from './HomeLayout.module.scss'
 export default class HomeLayout extends Component{
@@ -81,10 +82,10 @@ export default class HomeLayout extends Component{
         
           <Layout>
             <Header style={{backgroundColor:'#ffffff'}}>
-              <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-                <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-              </Button>
-              头部
+              <HeaderContainer
+                collapsed={this.state.collapsed}
+                toggleCollapsed={this.toggleCollapsed}
+              />
             </Header>   
             <Content>
               {this.createRouter(router)}
