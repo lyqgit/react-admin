@@ -1,0 +1,17 @@
+.rootContainer {
+  height:100%;
+  overflow:hidden;
+  .slideContainer {
+    overflow-y:auto;
+    scrollbar-base-color: transparent;
+    scrollbar-darkshadow-color: transparent;
+    scrollbar-highlight-color: transparent;
+    scrollbar-face-color: transparent;
+    border-right: 1px solid rgba(0,0,0,.07)
+  }
+}
+  
+
+  
+
+  

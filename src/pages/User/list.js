@@ -1,10 +1,10 @@
 import React,{ Component } from 'react'
-import { Button, Table, Form, Input, Select } from 'antd'
+import { Button, Table, Form, Input, Select  } from 'antd'
 
 const FormItem = Form.Item;
 const { Option } = Select;
 
-class UserAdd extends Component {
+class UserList extends Component {
 
   state = {
     selectedRowKeys: [], // Check here to configure the default column
@@ -25,6 +25,17 @@ class UserAdd extends Component {
   onSelectChange = (selectedRowKeys) => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
+  }
+
+  onPageChange=(page,pageSize)=>{
+    this.setState({
+      loading:true
+    })
+    setTimeout(()=>{
+      this.setState({
+        loading:false
+      })
+    },1000)
   }
 
   render(){
@@ -132,10 +143,17 @@ class UserAdd extends Component {
               <Button type="primary">查询</Button>
             </div>
           </div>
-          <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+          <Table
+            style={{padding:10}}
+            loading={this.state.loading}
+            rowSelection={rowSelection}
+            columns={columns}
+            dataSource={data}
+            pagination={{pageSize:5,onChange:this.onPageChange}}
+          />
         </div>
       )
   }
 }
 
-export default Form.create()(UserAdd)
+export default Form.create()(UserList)

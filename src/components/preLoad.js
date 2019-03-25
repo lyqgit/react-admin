@@ -8,7 +8,7 @@ const styles = {
     justifyContent:'center',
     position:'absolute',
     top:'0',
-    left:'0',
+    left:'100px',
     right:'0',
     bottom:'0'
   }

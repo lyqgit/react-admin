@@ -124,6 +124,7 @@
   "devDependencies": {
     "http-proxy-middleware": "^0.19.1",
     "mockjs": "^1.0.1-beta3",
+    "node-sass": "^4.11.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
   }

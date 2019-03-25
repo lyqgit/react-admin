@@ -24,7 +24,7 @@ export default class SideMenu extends Component {
     this.props.routerPush(item.props.node.path)
   }
 
-  loop=(routers)=>routers.map((item)=>(
+  loop=routers=>routers.map(item=>
     item.isNodeFold?
       <SubMenu
         key={item.id}
@@ -41,7 +41,7 @@ export default class SideMenu extends Component {
         <Icon type="pie-chart" />
         <span>{item.name}</span>
       </Menu.Item>
-  ))
+  )
   
 
   render(){

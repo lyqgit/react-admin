@@ -2,8 +2,10 @@ import React,{ Component } from 'react'
 import { Route, Link } from "react-router-dom";
 import { Layout,Button,Icon } from 'antd'
 import SideMenu from '@/components/SideMenu'
+import Index from '@/components/Index'
+import FooterContainer from '@/components/Footer'
 import lazyComponent from '@/utils/lazyComponent'
-
+import styles from './HomeLayout.module.scss'
 export default class HomeLayout extends Component{
 
   constructor(props){
@@ -61,22 +63,23 @@ export default class HomeLayout extends Component{
     router = JSON.parse(sessionStorage.getItem('router'))
     
     // console.log(router)
-    console.log(this.createRouter(router))
+    // console.log(this.createRouter(router))
     
 
     const { Header, Content, Footer, Sider } = Layout
-
     return (
       
-        <Layout>
-          {/* <Router> */}
+        <Layout
+          className={styles.rootContainer}
+        >
           <Sider
+            className={styles.slideContainer}
             collapsed={this.state.collapsed}
           >
             <SideMenu router={router} routerPush={this.routerPush}/>
           </Sider>
         
-          <Layout style={{height:'100vh'}}>
+          <Layout>
             <Header style={{backgroundColor:'#ffffff'}}>
               <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
                 <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
@@ -84,17 +87,13 @@ export default class HomeLayout extends Component{
               头部
             </Header>   
             <Content>
-              
-                  {this.createRouter(router)}
-                  this is home page1
-                  <Link to="/home/user">跳转到user</Link>
-                  
-              
-              <Link to="/">跳转到登录页面</Link>
+              {this.createRouter(router)}
+              {this.props.location.pathname === '/home'?<Index/>:''}
             </Content>
-            <Footer>底部</Footer>
+            <Footer>
+              <FooterContainer/>
+            </Footer>
           </Layout>
-          {/* </Router> */}
         </Layout>
     )
   }

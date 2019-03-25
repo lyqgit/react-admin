@@ -1,0 +1,24 @@
+.index{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 30px;
+  
+  .href{
+    animation: myshow 3s infinite;
+    position: relative;
+    left:-30px;
+  }
+
+  .href:hover{
+    font-size:50px;
+  }
+}
+
+@keyframes myshow
+{
+  0% {left: -30px;}
+  50% {left: 30px;}
+  100% {left: -30px;}
+}

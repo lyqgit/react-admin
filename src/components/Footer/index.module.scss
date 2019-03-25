@@ -1,0 +1,25 @@
+.index{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 30px;
+  
+  .href{
+    cursor: pointer;
+    animation: mygit 3s infinite;
+    position: relative;
+    transition: font-size 1s;
+    text-decoration: none
+  }
+  .href:hover{
+    font-size:50px;
+  }
+}
+
+@keyframes mygit
+{
+  0% {left: -30px;}
+  50% {left: 30px;}
+  100% {left: -30px;}
+}
