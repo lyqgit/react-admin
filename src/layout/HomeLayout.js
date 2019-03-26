@@ -7,6 +7,7 @@ import FooterContainer from '@/components/Footer'
 import HeaderContainer from '@/components/Header'
 import lazyComponent from '@/utils/lazyComponent'
 import styles from './HomeLayout.module.scss'
+import { delLogin, getLogin } from '@/utils/login'
 export default class HomeLayout extends Component{
 
   constructor(props){
@@ -15,6 +16,13 @@ export default class HomeLayout extends Component{
       collapsed: false,
     }
   }
+
+  loginOut=()=>{
+    delLogin()
+    this.props.history.push('/')
+  }
+
+  collapsed = true
 
   toggleCollapsed=()=>{
     this.setState({
@@ -68,7 +76,13 @@ export default class HomeLayout extends Component{
     
 
     const { Header, Content, Footer, Sider } = Layout
-    return (
+
+
+    if(getLogin() === null){
+      this.props.history.push('/')
+      return null
+    }else{
+      return (
       
         <Layout
           className={styles.rootContainer}
@@ -85,6 +99,7 @@ export default class HomeLayout extends Component{
               <HeaderContainer
                 collapsed={this.state.collapsed}
                 toggleCollapsed={this.toggleCollapsed}
+                loginOut={this.loginOut}
               />
             </Header>   
             <Content>
@@ -96,6 +111,9 @@ export default class HomeLayout extends Component{
             </Footer>
           </Layout>
         </Layout>
-    )
+      )
+    }
+
+    
   }
 }

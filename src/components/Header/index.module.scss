@@ -16,8 +16,8 @@
 
     .setList{
       position: relative;
-      top:-260px;
-      transition: all 1s;
+      top:-500px;
+      transition: all .8s;
       list-style: none;
       padding: 0;
       background-color: #ffffff;
@@ -29,6 +29,7 @@
   
     .setList > li {
       padding: 10px;
+      cursor: pointer;
     }
 
     >span:hover+.setList{
