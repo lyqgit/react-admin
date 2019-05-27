@@ -2,7 +2,7 @@
   .userName{
     font-size: 20px;
     float: right;
-
+    position: relative;
     > span{
       position: relative;
       cursor: pointer;
@@ -15,16 +15,13 @@
     }
 
     .setList{
-      position: relative;
-      top:-500px;
-      transition: all .8s;
+      position: absolute;
+      display: none;
       list-style: none;
       padding: 0;
       background-color: #ffffff;
-      padding-top: 64px;
-      opacity:0;
       z-index: 99;
-      margin-bottom:0; 
+      margin-bottom:0;
     }
   
     .setList > li {
@@ -32,14 +29,17 @@
       cursor: pointer;
     }
 
-    >span:hover+.setList{
-      top:-64px;
-      opacity:1;
+    &:hover >.setList{
+      display: block;
+      animation: onShow 1s ease-in;
     }
 
-    .setList:hover{
-      opacity:1;
-      top:-64px;
+
+
+
+    @keyframes onShow {
+      from {opacity: 0}
+      to {opacity: 1}
     }
 
   }
